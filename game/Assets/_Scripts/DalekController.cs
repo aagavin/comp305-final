@@ -22,7 +22,7 @@ public class DalekController : MonoBehaviour {
 	private int _life;
 
 	/************** PUBLIC  VARABLES **************/
-	public NavMeshAgent Agent;
+	public UnityEngine.AI.NavMeshAgent Agent;
 	public AudioClip DeathSound;
 
 	public int Life {
