@@ -16,7 +16,7 @@ public class MenuScript : MonoBehaviour {
 
     public void startbutton_Click()
     {
-        SceneManager.LoadScene("Main");
+        SceneManager.LoadScene("Level1");
     }
 
     public void instruction_Click()
