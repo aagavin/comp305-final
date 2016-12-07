@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour {
     public Text DisplayText;
     public AudioSource PhoneCall;
     public AudioSource Sit;
+    public AudioSource GetinCar;
+    public AudioSource CarAttempt;
 
     // Private
     private GameObject[] _lights;
@@ -46,10 +48,10 @@ public class PlayerController : MonoBehaviour {
                 DisplayText.gameObject.SetActive(true);
                 DisplayText.text = "Take a sit";
             }
-            else
+            else if(look.transform.gameObject.CompareTag("Car"))
             {
-                DisplayText.gameObject.SetActive(false);
-                DisplayText.text = "";
+                DisplayText.gameObject.SetActive(true);
+                DisplayText.text = "Try to open car";
             }
             if (Input.GetButtonDown("Fire1"))
             {
@@ -60,6 +62,10 @@ public class PlayerController : MonoBehaviour {
                         PhoneCall.Play();
                         DisplayText.gameObject.SetActive(false);
                         DisplayText.text = "";
+                    }
+                    else if(look.transform.gameObject.CompareTag("Car"))
+                    {
+                        CarAttempt.Play();
                     }
                     else if(look.transform.gameObject.CompareTag("Bench"))
                     {
@@ -83,6 +89,11 @@ public class PlayerController : MonoBehaviour {
                     }
                 }
             }
+        }
+        else
+        {
+            DisplayText.gameObject.SetActive(false);
+            DisplayText.text = "";
         }
 	}
     private void OnTriggerEnter(Collider other)
