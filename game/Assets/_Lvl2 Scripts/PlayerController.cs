@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour {
         RaycastHit look;
 
         //if raycast hits an object then do somthing....
-        if(Physics.Raycast (this.PlayerDirection.position, this.PlayerDirection.forward, out look,4f))
+        if(Physics.Raycast (this.PlayerDirection.position, this.PlayerDirection.forward, out look,5f))
         {
             if (look.transform.gameObject.CompareTag("Phone"))
             {
@@ -48,20 +48,26 @@ public class PlayerController : MonoBehaviour {
                 DisplayText.gameObject.SetActive(true);
                 DisplayText.text = "Take a sit";
             }
-            else if(look.transform.gameObject.CompareTag("Car"))
+            else if(look.transform.gameObject.CompareTag("Car")|| look.transform.gameObject.CompareTag("Enemy"))
             {
                 DisplayText.gameObject.SetActive(true);
                 DisplayText.text = "Try to open car";
             }
             if (Input.GetButtonDown("Fire1"))
             {
-                if (Physics.Raycast(this.PlayerDirection.position, this.PlayerDirection.forward, out look, 3f))
+                if (Physics.Raycast(this.PlayerDirection.position, this.PlayerDirection.forward, out look, 5f))
                 {
                     if (look.transform.gameObject.CompareTag("Phone"))
                     {
                         PhoneCall.Play();
                         DisplayText.gameObject.SetActive(false);
                         DisplayText.text = "";
+                    }
+                    else if (look.transform.gameObject.CompareTag("Enemy"))
+                    {
+                        CarAttempt.Play();
+                        look.transform.SendMessage("Follow");
+                        look.collider.SendMessage("Follow");
                     }
                     else if(look.transform.gameObject.CompareTag("Car"))
                     {
