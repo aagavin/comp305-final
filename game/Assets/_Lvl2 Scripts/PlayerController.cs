@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour {
     public AudioSource Sit;
     public AudioSource GetinCar;
     public AudioSource CarAttempt;
+    public AudioSource CarStart;
 
     // Private
     private GameObject[] _lights;
@@ -65,9 +66,8 @@ public class PlayerController : MonoBehaviour {
                     }
                     else if (look.transform.gameObject.CompareTag("Enemy"))
                     {
-                        CarAttempt.Play();
+                        CarStart.Play();
                         look.transform.SendMessage("Follow");
-                        look.collider.SendMessage("Follow");
                     }
                     else if(look.transform.gameObject.CompareTag("Car"))
                     {
