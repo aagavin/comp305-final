@@ -49,12 +49,18 @@ public class PlayerController : MonoBehaviour {
                 DisplayText.gameObject.SetActive(true);
                 DisplayText.text = "Take a sit";
             }
-            else if(look.transform.gameObject.CompareTag("Car")|| look.transform.gameObject.CompareTag("Enemy"))
+            else if(look.transform.gameObject.CompareTag("Car")|| look.transform.gameObject.CompareTag("Enemy")|| look.transform.gameObject.CompareTag("Player'sCar"))
             {
                 DisplayText.gameObject.SetActive(true);
                 DisplayText.text = "Try to open car";
             }
-            if (Input.GetButtonDown("Fire1"))
+        }
+        else
+        {
+            DisplayText.gameObject.SetActive(false);
+            DisplayText.text = "";
+        }
+        if (Input.GetButtonDown("Fire1"))
             {
                 if (Physics.Raycast(this.PlayerDirection.position, this.PlayerDirection.forward, out look, 5f))
                 {
@@ -79,6 +85,11 @@ public class PlayerController : MonoBehaviour {
                         DisplayText.gameObject.SetActive(false);
                         DisplayText.text = "";
                     }
+                    else if(look.transform.gameObject.CompareTag("Player'sCar"))
+                    {
+                        GetinCar.Play();
+                        //Put code here to move to next scene and carry info
+                    }
                     else if (look.transform.gameObject.CompareTag("Power"))
                     {
                         foreach (GameObject light in _lights)
@@ -95,15 +106,12 @@ public class PlayerController : MonoBehaviour {
                     }
                 }
             }
-        }
-        else
-        {
-            DisplayText.gameObject.SetActive(false);
-            DisplayText.text = "";
-        }
 	}
     private void OnTriggerEnter(Collider other)
     {
-        PlayerDirection.position = Respawn.position;
+        if (other.gameObject.CompareTag("boarder")|| other.gameObject.CompareTag("Enemy"))
+        {
+            PlayerDirection.position = Respawn.position;
+        }
     }
 }

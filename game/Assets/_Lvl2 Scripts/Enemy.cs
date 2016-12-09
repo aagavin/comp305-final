@@ -8,7 +8,6 @@ public class Enemy : MonoBehaviour {
 
     //Public
     public NavMeshAgent Agent;
-    public Light Headlight;
     public bool FollowPlayer
     {
         get
@@ -33,7 +32,6 @@ public class Enemy : MonoBehaviour {
     void Start()
     {
         this._player = GameObject.FindWithTag("Player").transform;
-        Headlight.enabled = false;
         FollowPlayer = false;
         _collider = GetComponent<MeshCollider>();
     }
@@ -51,7 +49,6 @@ public class Enemy : MonoBehaviour {
     {
         this._backtospot = this.gameObject.transform.position;
         this._backtorotation = this.gameObject.transform.rotation;
-        this.Headlight.enabled = true;
         this.FollowPlayer = true;
         this._collider.convex = true;
         this._collider.isTrigger = true;
@@ -59,14 +56,10 @@ public class Enemy : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag("Player"))
-        {
-            this.Headlight.enabled = false;
             this.FollowPlayer = false;
             this._collider.isTrigger = false;
             this._collider.convex = false;
             this.gameObject.transform.position = this._backtospot;
             this.gameObject.transform.rotation = this._backtorotation;
-        }
     }
 }
