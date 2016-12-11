@@ -16,7 +16,7 @@ public class Lvl2GameController : MonoBehaviour {
         _lights = GameObject.FindGameObjectsWithTag("Light");
         foreach (GameObject light in _lights)
         {
-            var source = light.GetComponent<Light>();
+            Light source = (Light) light.GetComponent<Light>();
                 source.enabled = false;
         }
         this.Player.transform.position = this.SpawnPoint.position;
