@@ -101,6 +101,7 @@ public class GameController : MonoBehaviour {
 				Invoke ("_resetAmo", 8f);		
 			}
 			else if(Amo > 80){
+				AmoText.color = Color.yellow;
 				Invoke ("_resetAmo", 3.5f);
 			} else if (Amo <= 15) {
 				AmoText.color = Color.white;
