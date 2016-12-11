@@ -1,10 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
+
 /*
  * Pedro Bento
  * Aaron Fernandes
+ * Waynell Lovell
+ * Ashley Tjonhing
  * 
- * COMP 305 - Assignment 3
+ * 
+ * COMP 305 - Assignment 4 | Final 
  */ 
 
 
@@ -48,7 +52,7 @@ public class DalekController : MonoBehaviour {
 	void Start () {
 		this._gameController = GameObject.FindGameObjectWithTag ("ScoreBoard");
 		this._player = GameObject.FindWithTag ("Player").transform;
-		this._life = 2;
+		this._life = 5;
 	}
 
 	void Update(){
@@ -58,7 +62,8 @@ public class DalekController : MonoBehaviour {
 	/************** PUBLIC FUNCTIONS **************/
 
 	/// <summary>
-	/// Raises the collision enter event.
+	/// Raises the collision enter event
+	/// when dalek hits player
 	/// </summary>
 	/// <param name="other">Other.</param>
 	public void OnCollisionEnter(Collision other){
