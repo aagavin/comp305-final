@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour {
 
     //Public
     public NavMeshAgent Agent;
+    public GameObject Body;
     public bool FollowPlayer
     {
         get
@@ -34,6 +35,8 @@ public class Enemy : MonoBehaviour {
         this._player = GameObject.FindWithTag("Player").transform;
         FollowPlayer = false;
         _collider = GetComponent<MeshCollider>();
+        this._backtospot = this.Body.transform.position;
+        this._backtorotation = this.Body.transform.rotation;
     }
 
     // Update is called once per frame
@@ -43,12 +46,15 @@ public class Enemy : MonoBehaviour {
         {
             this.Agent.SetDestination(this._player.position);
         }
+        else
+        {
+            this.Body.transform.position = this._backtospot;
+            this.Body.transform.rotation = this._backtorotation;
+        }
     }
 
     public void Follow()
     {
-        this._backtospot = this.gameObject.transform.position;
-        this._backtorotation = this.gameObject.transform.rotation;
         this.FollowPlayer = true;
         this._collider.convex = true;
         this._collider.isTrigger = true;
@@ -59,7 +65,5 @@ public class Enemy : MonoBehaviour {
             this.FollowPlayer = false;
             this._collider.isTrigger = false;
             this._collider.convex = false;
-            this.gameObject.transform.position = this._backtospot;
-            this.gameObject.transform.rotation = this._backtorotation;
     }
 }
