@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
@@ -91,7 +92,7 @@ public class PlayerController : MonoBehaviour
                 else if (look.transform.gameObject.CompareTag("Player'sCar"))
                 {
                     GetinCar.Play();
-                    //Put code here to move to next scene and carry info
+                    StartCoroutine(_moveToLevel3(new WaitForSeconds(5f)));
                 }
                 else if (look.transform.gameObject.CompareTag("Power"))
                 {
@@ -116,5 +117,10 @@ public class PlayerController : MonoBehaviour
         {
             PlayerDirection.position = Respawn.position;
         }
+    }
+    private IEnumerator _moveToLevel3(WaitForSeconds _waitTime)
+    {
+        yield return _waitTime;
+        SceneManager.LoadScene("Level3");
     }
 }
