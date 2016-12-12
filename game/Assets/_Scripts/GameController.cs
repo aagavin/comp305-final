@@ -48,6 +48,7 @@ public class GameController : MonoBehaviour {
 
 	public AudioSource GameOverSound;
 	public AudioSource ThemeSound;
+	public AudioSource GunReloadSound;
 
 	/************** PUBLIC  PROPITIES **************/
 
@@ -101,6 +102,7 @@ public class GameController : MonoBehaviour {
 				Invoke ("_resetAmo", 8f);		
 			}
 			else if(Amo > 80){
+				AmoText.color = Color.yellow;
 				Invoke ("_resetAmo", 3.5f);
 			} else if (Amo <= 15) {
 				AmoText.color = Color.white;
@@ -189,6 +191,7 @@ public class GameController : MonoBehaviour {
 	private void _resetAmo(){
 		this.Amo = 0;
 		this.AmoText.color = Color.white;
+		this.GunReloadSound.Play ();
 	}
 
 	/// <summary>
