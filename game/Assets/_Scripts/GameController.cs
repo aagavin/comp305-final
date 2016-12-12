@@ -8,8 +8,11 @@ using UnityEngine.SceneManagement;
 /*
  * Pedro Bento
  * Aaron Fernandes
+ * Waynell Lovell
+ * Ashley Tjonhing
  * 
- * COMP 305 - Assignment 3
+ * 
+ * COMP 305 - Assignment 4 | Final 
  */ 
 
 
@@ -27,6 +30,7 @@ public class GameController : MonoBehaviour {
 	private bool _invulnerable;
 	private GameObject[] Spawnpoints;
 	private int _waveNum =1;
+	private int _waveMod=10;
 	private int _dalekSpawnCount;
 	private float _invulnerableTime;
 
@@ -58,6 +62,7 @@ public class GameController : MonoBehaviour {
 		}
 		set{
 			this._dalekSpawnCount = value;
+			Debug.Log (_dalekSpawnCount);
 			if (this._dalekSpawnCount == 0) {
 				this._waveNum++;
 				this._spawnDaleks ();
@@ -163,9 +168,9 @@ public class GameController : MonoBehaviour {
 	/// Spawns the daleks.
 	/// </summary>
 	private void _spawnDaleks(){
-		this._dalekSpawnCount = this._waveNum * 3;
+		this._dalekSpawnCount = this._waveNum * this._waveMod;
 
-		for (int i = 0; i < (this._waveNum * 3); i++) {
+		for (int i = 0; i < (this._waveNum * this._waveMod); i++) {
 			int rand = Random.Range (0, 4);
 			Vector3 position = (Spawnpoints [rand]).transform.position;
 			Instantiate (Dalek, position, Quaternion.identity);

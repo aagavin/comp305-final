@@ -3,9 +3,12 @@ using System.Collections;
 
 /*
  * Pedro Bento
- * Aaron Fernandes - 300773526
+ * Aaron Fernandes
+ * Waynell Lovell
+ * Ashley Tjonhing
  * 
- * COMP 305 - Assignment 3
+ * 
+ * COMP 305 - Assignment 4 | Final 
  */ 
 
 
