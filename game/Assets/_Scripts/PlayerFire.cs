@@ -3,9 +3,12 @@ using System.Collections;
 
 /*
  * Pedro Bento
- * Aaron Fernandes - 300773526
+ * Aaron Fernandes
+ * Waynell Lovell
+ * Ashley Tjonhing
  * 
- * COMP 305 - Assignment 3
+ * 
+ * COMP 305 - Assignment 4 | Final 
  */ 
 
 
@@ -17,25 +20,29 @@ public class PlayerFire : MonoBehaviour {
 
 	/************** PRIVATE VARABLES **************/
 	private Transform _transform;
+	private bool _onTable;
 
 	/************** PUBLIC  VARABLES **************/
 	public AudioSource Firesound;
 	public Transform FirePosition;
 	public GameObject FireEffect;
 	public AudioSource HealthSound;
+	public AudioSource GunStuckSound;
 
 
 	/************** PRIVATE FUNCTIONS  **************/
 	// Use this for initialization
 	void Start () {
 		this._transform = this.GetComponent<Transform> ();
+		this._onTable = false;
 	}
 	
 	/// <summary>
-	/// Update is called once per frame
+	/// Update is called once per frame.
+	/// Function handles the player fireing
 	/// </summary>
 	void Update () {
-		if (Input.GetButtonDown ("Fire1")) {
+		if (Input.GetButtonDown ("Fire1") && !this._onTable) {
 			if (GameObject.FindGameObjectWithTag ("ScoreBoard").GetComponent<GameController> ().Amo < 100) {
 
 				// play fire sound
@@ -54,13 +61,27 @@ public class PlayerFire : MonoBehaviour {
 					}
 				}
 				// Increase heat count
-				GameObject.FindGameObjectWithTag ("ScoreBoard").GetComponent<GameController> ().Amo+=10;
+				GameObject.FindGameObjectWithTag ("ScoreBoard").GetComponent<GameController> ().Amo += 10;
 				// stop sonic effect after 2s 
 				GameObject.Destroy (fe, 2f);
 
 
 			} 
 
+		} else if (Input.GetButtonDown ("Fire1") && this._onTable) {
+			this.GunStuckSound.Play ();
+		}
+	}
+
+	void OnTriggerEnter(Collider other){
+		if (other.gameObject.CompareTag ("MajorTable")) {
+			this._onTable = true;
+		}
+	}
+
+	void OnTriggerExit(Collider other){
+		if (other.gameObject.CompareTag ("MajorTable")) {
+			this._onTable = false;
 		}
 	}
 
@@ -70,7 +91,7 @@ public class PlayerFire : MonoBehaviour {
 	/// Raises the collision enter event.
 	/// This occours when player hits pickup
 	/// </summary>
-	/// <param name="other">Other.</param>
+	/// <param name="other">Other.</param>	/// 
 	public void OnCollisionEnter(Collision other){
 		if(other.gameObject.CompareTag("Pickup")){
 			HealthSound.Play ();
@@ -78,4 +99,6 @@ public class PlayerFire : MonoBehaviour {
 			GameObject.Destroy (other.gameObject);
 		}
 	}
+
+
 }
