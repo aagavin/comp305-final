@@ -2,43 +2,28 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 
-/*
- * Pedro Bento
- * Aaron Fernandes
- * Waynell Lovell
- * Ashley Tjonhing
- * 
- * 
- * COMP 305 - Assignment 4 | Final 
- */ 
-
-/// <summary>
-/// Used for switching the menu scene to other levels
-/// </summary>
 public class MenuScript : MonoBehaviour {
 
-	/************** PUBLIC FUNCTIONS **************/
+	// Use this for initialization
+	void Start () {
+	
+	}
+	
+	// Update is called once per frame
+	void Update () {
+	
+	}
 
-	/// <summary>
-	/// Goto Level 1 Scene
-	/// </summary>
     public void startbutton_Click()
     {
         SceneManager.LoadScene("Level1");
     }
 
-	/// <summary>
-	/// Goto Instructions scene
-	/// </summary>
     public void instruction_Click()
     {
         SceneManager.LoadScene("Instructions");
     }
 
-
-	/// <summary>
-	/// Goto menu Scene
-	/// </summary>
     public void exit_Click()
     {
         SceneManager.LoadScene("Menu");
