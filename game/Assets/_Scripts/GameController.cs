@@ -8,11 +8,8 @@ using UnityEngine.SceneManagement;
 /*
  * Pedro Bento
  * Aaron Fernandes
- * Waynell Lovell
- * Ashley Tjonhing
  * 
- * 
- * COMP 305 - Assignment 4 | Final 
+ * COMP 305 - Assignment 3
  */ 
 
 
@@ -30,7 +27,6 @@ public class GameController : MonoBehaviour {
 	private bool _invulnerable;
 	private GameObject[] Spawnpoints;
 	private int _waveNum =1;
-	private int _waveMod=10;
 	private int _dalekSpawnCount;
 	private float _invulnerableTime;
 
@@ -48,7 +44,6 @@ public class GameController : MonoBehaviour {
 
 	public AudioSource GameOverSound;
 	public AudioSource ThemeSound;
-	public AudioSource GunReloadSound;
 
 	/************** PUBLIC  PROPITIES **************/
 
@@ -63,7 +58,6 @@ public class GameController : MonoBehaviour {
 		}
 		set{
 			this._dalekSpawnCount = value;
-			Debug.Log (_dalekSpawnCount);
 			if (this._dalekSpawnCount == 0) {
 				this._waveNum++;
 				this._spawnDaleks ();
@@ -102,7 +96,6 @@ public class GameController : MonoBehaviour {
 				Invoke ("_resetAmo", 8f);		
 			}
 			else if(Amo > 80){
-				AmoText.color = Color.yellow;
 				Invoke ("_resetAmo", 3.5f);
 			} else if (Amo <= 15) {
 				AmoText.color = Color.white;
@@ -170,9 +163,9 @@ public class GameController : MonoBehaviour {
 	/// Spawns the daleks.
 	/// </summary>
 	private void _spawnDaleks(){
-		this._dalekSpawnCount = this._waveNum * this._waveMod;
+		this._dalekSpawnCount = this._waveNum * 3;
 
-		for (int i = 0; i < (this._waveNum * this._waveMod); i++) {
+		for (int i = 0; i < (this._waveNum * 3); i++) {
 			int rand = Random.Range (0, 4);
 			Vector3 position = (Spawnpoints [rand]).transform.position;
 			Instantiate (Dalek, position, Quaternion.identity);
@@ -191,7 +184,6 @@ public class GameController : MonoBehaviour {
 	private void _resetAmo(){
 		this.Amo = 0;
 		this.AmoText.color = Color.white;
-		this.GunReloadSound.Play ();
 	}
 
 	/// <summary>
