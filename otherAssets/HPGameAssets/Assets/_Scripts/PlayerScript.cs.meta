@@ -1,0 +1,25 @@
+fileFormatVersion: 2
+guid: 2dca04f385291f445b59eb29d1f5f82b
+timeCreated: 1479958834
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - livesLabel: {instanceID: 0}
+  - scoreLabel: {instanceID: 0}
+  - gameOverLabel: {instanceID: 0}
+  - finalLabel: {instanceID: 0}
+  - restartButton: {instanceID: 0}
+  - Dementor: {fileID: 1000010327247652, guid: b20e23008377b24438376486545213fe, type: 2}
+  - Beans: {instanceID: 0}
+  - Player: {instanceID: 0}
+  - endMusic: {instanceID: 0}
+  - backgroundMusic: {instanceID: 0}
+  - beans: {instanceID: 0}
+  - dementor: {instanceID: 0}
+  - stephanie: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

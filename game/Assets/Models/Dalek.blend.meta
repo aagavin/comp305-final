@@ -1,0 +1,121 @@
+fileFormatVersion: 2
+guid: 92199729d25c8437aa9034ab78d8bc6e
+timeCreated: 1479260754
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Arm1
+    100002: //RootNode
+    100004: Dalek
+    100006: Dalek_Motion
+    100008: Dome
+    100010: Eyestalk
+    100012: Gun
+    100014: Gun_0
+    100016: Neck
+    100018: Plunger
+    100020: Shoulder_Rot
+    100022: Skirt
+    100024: Slats
+    100026: Sphere
+    400000: Arm1
+    400002: Dalek
+    400004: //RootNode
+    400006: Dalek_Motion
+    400008: Dome
+    400010: Eyestalk
+    400012: Gun
+    400014: Gun_0
+    400016: Neck
+    400018: Plunger
+    400020: Shoulder_Rot
+    400022: Skirt
+    400024: Slats
+    400026: Sphere
+    2300000: Arm1
+    2300002: Eyestalk
+    2300004: Gun
+    2300006: Sphere
+    3300000: Arm1
+    3300002: Eyestalk
+    3300004: Gun
+    3300006: Sphere
+    4300000: Slats
+    4300002: Arm1
+    4300004: Gun
+    4300006: Dome
+    4300008: Eyestalk
+    4300010: Skirt
+    4300012: Sphere
+    4300014: Neck
+    7400000: Default Take
+    9500000: //RootNode
+    13700000: Dome
+    13700002: Neck
+    13700004: Skirt
+    13700006: Slats
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
