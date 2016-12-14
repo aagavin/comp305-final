@@ -20,7 +20,7 @@ public class GameController2 : MonoBehaviour {
 
 
 
-	/************** PRIVATE VARABLES **************/
+	/************** PRIVATE VARIABLES **************/
 	private int _score;
 	private int _health;
 	private int _amo;
@@ -29,9 +29,10 @@ public class GameController2 : MonoBehaviour {
 	private int _waveNum =1;
 	private int _enemySpawnCount;
 	private float _invulnerableTime;
+    private bool hasKey;
 
 
-	/************** PUBLIC  VARABLES **************/
+	/************** PUBLIC  VARIABLES **************/
 	public Text ScoreText;
 	public Text HealthText;
 	public Text AmmoText;
@@ -47,15 +48,16 @@ public class GameController2 : MonoBehaviour {
 
 	public AudioSource GameOverSound;
 	public AudioSource ThemeSound;
+    public AudioSource GunReloadSound;
 
-	/************** PUBLIC  PROPERTIES **************/
+    /************** PUBLIC  PROPERTIES **************/
 
 
-	/// <summary>
-	/// Gets or sets the dalek spawn count.
-	/// </summary>
-	/// <value>The dalek spawn count.</value>
-	public int DalekSpawnCount {
+    /// <summary>
+    /// Gets or sets the dalek spawn count.
+    /// </summary>
+    /// <value>The dalek spawn count.</value>
+    public int DalekSpawnCount {
 		get{
 			return _enemySpawnCount;
 		}
@@ -121,7 +123,15 @@ public class GameController2 : MonoBehaviour {
 			HealthText.text = "Health: " + this.Health;
 		}
 	}
-		
+	
+    /// <summary>
+    /// Whether the player has picked up the key yet
+    /// </summary>
+    public bool HasKey
+    {
+        get { return this.hasKey; }
+        set { this.hasKey = value; }
+    }
 
 	/************** PRIVATE FUNCTIONS  **************/
 
@@ -131,6 +141,7 @@ public class GameController2 : MonoBehaviour {
 	/// </summary>
 	void Start () {
 		this._invulnerable = false;
+        this.hasKey = false;
 		this._health = 100;
 		this._amo = 0;
 		AmmoText.text = "Heat: " + this._amo + "%";
@@ -210,7 +221,8 @@ public class GameController2 : MonoBehaviour {
 	private void _resetAmmo(){
 		this.Ammo = 0;
 		this.AmmoText.color = Color.white;
-	}
+        this.GunReloadSound.Play();
+    }
 
 	/// <summary>
 	/// Reset this instance.
@@ -239,9 +251,7 @@ public class GameController2 : MonoBehaviour {
 				ThemeSound.Stop ();
 				GameOverSound.Play();
 
-				//
 				Time.timeScale=0;
-
 
 				this.ScoreText.gameObject.SetActive(false);
 				this.HealthText.gameObject.SetActive(false);
@@ -256,10 +266,13 @@ public class GameController2 : MonoBehaviour {
 				}
 				GameOverText.text="Game Over High Score: "+PlayerPrefs.GetInt ("HighScore");
 				Cursor.lockState = CursorLockMode.None;
-
 			}
 			this._setInvulnerable ();
 		}
-
 	}
+
+    public void Win()
+    {
+        //TODO: make this work
+    }
 }
