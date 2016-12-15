@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 /*
  * Pedro Bento
@@ -16,7 +17,8 @@ using UnityEngine.SceneManagement;
 /// Used for switching the menu scene to other levels
 /// </summary>
 public class MenuScript : MonoBehaviour {
-
+    // PUBLIC VARIABLES
+    public Button Button;
 	/************** PUBLIC FUNCTIONS **************/
 
 	/// <summary>
