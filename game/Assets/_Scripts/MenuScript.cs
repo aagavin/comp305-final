@@ -22,10 +22,26 @@ public class MenuScript : MonoBehaviour {
 	/// <summary>
 	/// Goto Level 1 Scene
 	/// </summary>
-    public void startbutton_Click()
+	public void level1button_Click()
     {
         SceneManager.LoadScene("Level1");
     }
+
+	/// <summary>
+	/// Goto Level 1 Scene
+	/// </summary>
+	public void level2button_Click()
+	{
+		SceneManager.LoadScene("Level1");
+	}
+
+	/// <summary>
+	/// Goto Level 1 Scene
+	/// </summary>
+	public void level3button_Click()
+	{
+		SceneManager.LoadScene("Level1");
+	}
 
 	/// <summary>
 	/// Goto Instructions scene
