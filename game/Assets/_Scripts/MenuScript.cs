@@ -40,7 +40,7 @@ public class MenuScript : MonoBehaviour {
 	/// </summary>
 	public void level3button_Click()
 	{
-		SceneManager.LoadScene("Level1");
+		SceneManager.LoadScene("Level3");
 	}
 
 	/// <summary>
