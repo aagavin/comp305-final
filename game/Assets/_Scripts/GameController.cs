@@ -63,7 +63,6 @@ public class GameController : MonoBehaviour {
 		}
 		set{
 			this._dalekSpawnCount = value;
-			Debug.Log (_dalekSpawnCount);
 			if (this._dalekSpawnCount == 0) {
 				this._waveNum++;
 				this._spawnDaleks ();
