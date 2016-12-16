@@ -121,6 +121,6 @@ public class PlayerController : MonoBehaviour
     private IEnumerator _moveToLevel3(WaitForSeconds _waitTime)
     {
         yield return _waitTime;
-        SceneManager.LoadScene("Level3");
+        SceneManager.LoadScene("Level2toLevel3");
     }
 }
