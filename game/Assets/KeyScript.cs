@@ -15,9 +15,9 @@ public class KeyScript : MonoBehaviour {
 		
 	}
 
-    private void OnTriggerEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.collider.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
             gameController.HasKey = true;
             DestroyObject(this.gameObject);
