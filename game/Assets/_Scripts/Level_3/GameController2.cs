@@ -8,8 +8,11 @@ using UnityEngine.SceneManagement;
 /*
  * Pedro Bento
  * Aaron Fernandes
+ * Waynell Lovell
+ * Ashley Tjonhing
  * 
- * COMP 305 - Assignment 3
+ * 
+ * COMP 305 - Assignment 4 | Final 
  */ 
 
 
@@ -100,10 +103,10 @@ public class GameController2 : MonoBehaviour {
 			AmmoText.text = "Heat: "+this._amo+"%";
 			if (Ammo == 100) {
 				AmmoText.color = Color.red;
-				Invoke ("_resetAmo", 8f);		
+				Invoke ("_resetAmmo", 8f);		
 			}
 			else if(Ammo > 80){
-				Invoke ("_resetAmo", 3.5f);
+				Invoke ("_resetAmmo", 3.5f);
 			} else if (Ammo <= 15) {
 				AmmoText.color = Color.white;
 			}
@@ -153,7 +156,9 @@ public class GameController2 : MonoBehaviour {
 		// hide end game stuff
 		GameOverText.gameObject.SetActive(false);
 		RestartButton.gameObject.SetActive(false);
-		PlayerPrefs.SetInt ("HighScore", 0);
+
+		//spawn keys
+		this._spawnKey();
 	}
 		
 
