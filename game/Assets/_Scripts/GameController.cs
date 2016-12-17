@@ -9,11 +9,11 @@ using UnityEngine.SceneManagement;
  * Pedro Bento
  * Aaron Fernandes
  * Waynell Lovell
- * Ashley Tjonhing
+ * Ashley Tjonhing (is blissfully unaware of this bad code, please dont tell her )
  * 
  * 
  * COMP 305 - Assignment 4 | Final 
- */ 
+ */
 
 
 /// <summary>
@@ -91,21 +91,21 @@ public class GameController : MonoBehaviour {
 	/// Gets or sets the amo.
 	/// </summary>
 	/// <value>The amo.</value>
-	public int Amo {
+	public int Ammo {
 		get{
 			return this._amo;
 		}
 		set{
 			this._amo = value;
 			AmoText.text = "Heat: "+this._amo+"%";
-			if (Amo == 100) {
+			if (Ammo == 100) {
 				AmoText.color = Color.red;
 				Invoke ("_resetAmo", 8f);		
 			}
-			else if(Amo > 80){
+			else if(Ammo > 80){
 				AmoText.color = Color.yellow;
 				Invoke ("_resetAmo", 3.5f);
-			} else if (Amo <= 15) {
+			} else if (Ammo <= 15) {
 				AmoText.color = Color.white;
 			}
 		}
@@ -196,7 +196,7 @@ public class GameController : MonoBehaviour {
 	/// Resets the amo.
 	/// </summary>
 	private void _resetAmo(){
-		this.Amo = 0;
+		this.Ammo = 0;
 		this.AmoText.color = Color.white;
 		this.GunReloadSound.Play ();
 	}

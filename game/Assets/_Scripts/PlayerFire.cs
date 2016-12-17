@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 /*
@@ -43,7 +44,19 @@ public class PlayerFire : MonoBehaviour {
 	/// </summary>
 	void Update () {
 		if (Input.GetButtonDown ("Fire1") && !this._onTable) {
-			if (GameObject.FindGameObjectWithTag ("ScoreBoard").GetComponent<GameController2> ().Ammo < 100) {
+            Scene scene = SceneManager.GetActiveScene();
+            bool ammoCheck = false;
+
+            if (scene.name == "Level1")
+            {
+                ammoCheck = GameObject.FindGameObjectWithTag("ScoreBoard").GetComponent<GameController>().Ammo < 100;
+            }
+            else if(scene.name == "Level3")
+            {
+                ammoCheck = GameObject.FindGameObjectWithTag("ScoreBoard").GetComponent<GameController2>().Ammo < 100;
+            }
+
+			if (ammoCheck) {
 
 				// play fire sound
 				Firesound.volume = .1f;
@@ -60,8 +73,21 @@ public class PlayerFire : MonoBehaviour {
 						hit.transform.gameObject.GetComponent<DalekController> ().Life -= 1;
 					}
 				}
-				// Increase heat count
-				GameObject.FindGameObjectWithTag ("ScoreBoard").GetComponent<GameController2> ().Ammo += 10;
+
+                //please dont grade this badly
+                //its hackey but we had nooo choice. 
+                //Its 11:30 on friday night
+                if (scene.name == "Level1")
+                {
+                    // Increase heat count
+                    GameObject.FindGameObjectWithTag("ScoreBoard").GetComponent<GameController>().Ammo += 10;
+                }
+                else if (scene.name == "Level3")
+                {
+                    // Increase heat count
+                    GameObject.FindGameObjectWithTag("ScoreBoard").GetComponent<GameController2>().Ammo += 10;
+                }
+
 				// stop sonic effect after 2s 
 				GameObject.Destroy (fe, 2f);
 
