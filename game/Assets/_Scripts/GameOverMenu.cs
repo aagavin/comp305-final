@@ -19,6 +19,7 @@ public class GameOverMenu : MonoBehaviour {
     public Text Score_Text;
 	// Use this for initialization
 	void Start () {
+        //__++++++++++ THIS IS A CRASH 
         int _score = PlayerPrefs.GetInt("Score");
 		Debug.Log ("Score:");
 		Debug.Log (PlayerPrefs.GetInt ("Score"));
