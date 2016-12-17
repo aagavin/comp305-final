@@ -1,10 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
+
 /*
  * Pedro Bento
  * Aaron Fernandes
+ * Waynell Lovell
+ * Ashley Tjonhing (is blissfully unaware of this bad code, please dont tell her )
  * 
- * COMP 305 - Assignment 3
+ * 
+ * COMP 305 - Assignment 4 | Final 
  */ 
 
 
@@ -32,10 +37,19 @@ public class DalekController : MonoBehaviour {
 		set{
 			this._life = value;
 			if(this._life==0){
-				this._gameController.GetComponent<GameController> ().DalekSpawnCount--;
-				this._gameController.GetComponent<GameController> ().Score+=5;
-				AudioSource.PlayClipAtPoint (DeathSound, this.transform.position, 50f);
-				GameObject.Destroy (this.gameObject);
+				Scene scene = SceneManager.GetActiveScene();
+
+				if (scene.name == "Level3") {
+					this._gameController.GetComponent<GameController2> ().DalekSpawnCount--;
+					this._gameController.GetComponent<GameController2> ().Score += 5;
+					AudioSource.PlayClipAtPoint (DeathSound, this.transform.position, 50f);
+					GameObject.Destroy (this.gameObject);
+				} else {
+					this._gameController.GetComponent<GameController> ().DalekSpawnCount--;
+					this._gameController.GetComponent<GameController> ().Score += 5;
+					AudioSource.PlayClipAtPoint (DeathSound, this.transform.position, 50f);
+					GameObject.Destroy (this.gameObject);
+				}
 			}
 		}
 	}
@@ -58,14 +72,26 @@ public class DalekController : MonoBehaviour {
 	/************** PUBLIC FUNCTIONS **************/
 
 	/// <summary>
-	/// Raises the collision enter event.
+	/// Raises the collision enter event
+	/// when dalek hits player
 	/// </summary>
 	/// <param name="other">Other.</param>
 	public void OnCollisionEnter(Collision other){
 		if (other.gameObject.CompareTag("Player") ){
 			other.gameObject.GetComponent<Rigidbody> ().velocity *=-500;
+            Scene scene = SceneManager.GetActiveScene();
+            
+            // sorry again
+            // we are really really sorry
 
-			_gameController.GetComponent<GameController> ().HealthHit ();
+            if (scene.name == "Level3")
+            {
+                _gameController.GetComponent<GameController2>().HealthHit();
+            }
+            else
+            {
+                _gameController.GetComponent<GameController>().HealthHit();
+            }
 
 		}
 

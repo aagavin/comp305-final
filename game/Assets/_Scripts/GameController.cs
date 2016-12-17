@@ -8,9 +8,12 @@ using UnityEngine.SceneManagement;
 /*
  * Pedro Bento
  * Aaron Fernandes
+ * Waynell Lovell
+ * Ashley Tjonhing (is blissfully unaware of this bad code, please dont tell her )
  * 
- * COMP 305 - Assignment 3
- */ 
+ * 
+ * COMP 305 - Assignment 4 | Final 
+ */
 
 
 /// <summary>
@@ -27,6 +30,7 @@ public class GameController : MonoBehaviour {
 	private bool _invulnerable;
 	private GameObject[] Spawnpoints;
 	private int _waveNum =1;
+	private int _waveMod=10;
 	private int _dalekSpawnCount;
 	private float _invulnerableTime;
 
@@ -44,6 +48,9 @@ public class GameController : MonoBehaviour {
 
 	public AudioSource GameOverSound;
 	public AudioSource ThemeSound;
+	public AudioSource GunReloadSound;
+
+	public MenuScript MenUScript;
 
 	/************** PUBLIC  PROPITIES **************/
 
@@ -84,20 +91,21 @@ public class GameController : MonoBehaviour {
 	/// Gets or sets the amo.
 	/// </summary>
 	/// <value>The amo.</value>
-	public int Amo {
+	public int Ammo {
 		get{
 			return this._amo;
 		}
 		set{
 			this._amo = value;
 			AmoText.text = "Heat: "+this._amo+"%";
-			if (Amo == 100) {
+			if (Ammo == 100) {
 				AmoText.color = Color.red;
 				Invoke ("_resetAmo", 8f);		
 			}
-			else if(Amo > 80){
+			else if(Ammo > 80){
+				AmoText.color = Color.yellow;
 				Invoke ("_resetAmo", 3.5f);
-			} else if (Amo <= 15) {
+			} else if (Ammo <= 15) {
 				AmoText.color = Color.white;
 			}
 		}
@@ -139,7 +147,13 @@ public class GameController : MonoBehaviour {
 		RestartButton.gameObject.SetActive(false);
 		PlayerPrefs.SetInt ("HighScore", 0);
 	}
-		
+
+	void Update(){
+		if (this.Score == 50) {
+			PlayerPrefs.SetInt ("Score", this.Score);
+			MenUScript.level1to2button_Click ();
+		}
+	}
 
 
 	/// <summary>
@@ -163,9 +177,9 @@ public class GameController : MonoBehaviour {
 	/// Spawns the daleks.
 	/// </summary>
 	private void _spawnDaleks(){
-		this._dalekSpawnCount = this._waveNum * 3;
+		this._dalekSpawnCount = this._waveNum * this._waveMod;
 
-		for (int i = 0; i < (this._waveNum * 3); i++) {
+		for (int i = 0; i < (this._waveNum * this._waveMod); i++) {
 			int rand = Random.Range (0, 4);
 			Vector3 position = (Spawnpoints [rand]).transform.position;
 			Instantiate (Dalek, position, Quaternion.identity);
@@ -182,8 +196,9 @@ public class GameController : MonoBehaviour {
 	/// Resets the amo.
 	/// </summary>
 	private void _resetAmo(){
-		this.Amo = 0;
+		this.Ammo = 0;
 		this.AmoText.color = Color.white;
+		this.GunReloadSound.Play ();
 	}
 
 	/// <summary>
@@ -228,8 +243,9 @@ public class GameController : MonoBehaviour {
 				if (this._score > highScore) {
 					PlayerPrefs.SetInt ("HighScore", this._score);
 				}
-				GameOverText.text="Game Over High Score: "+PlayerPrefs.GetInt ("HighScore");
-				Cursor.lockState = CursorLockMode.None;
+				SceneManager.LoadScene ("GameOver");
+				//GameOverText.text="Game Over High Score: "+PlayerPrefs.GetInt ("HighScore");
+				//Cursor.lockState = CursorLockMode.None;
 
 			}
 			this._setInvulnerable ();
