@@ -9,16 +9,16 @@ public class ArrowScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-        key = GameObject.FindGameObjectWithTag("KeyObject").transform;
+        //key = GameObject.FindGameObjectWithTag("KeyObject").transform;
         if (!key)
             Debug.Log("ERROR could not find Key!");
     }
 	
 	// Update is called once per frame
 	void Update () {
-        Rotation();
+       // Rotation();
     }
-
+    /*
     void Rotation()
     {
         Vector2 target = key.position;
@@ -31,5 +31,5 @@ public class ArrowScript : MonoBehaviour {
         Quaternion rot = Quaternion.Euler(new Vector3(0, 0, angle - 5));
 
         this.transform.rotation = rot;
-    }
+    }*/
 }
