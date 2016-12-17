@@ -3111,7 +3111,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 867938296}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3453,8 +3453,8 @@ RectTransform:
   - {fileID: 420373464}
   - {fileID: 738750207}
   - {fileID: 10531048}
-  - {fileID: 1161454389}
   - {fileID: 588080218}
+  - {fileID: 1161454389}
   - {fileID: 1132054129}
   - {fileID: 283375156}
   m_Father: {fileID: 0}
@@ -6535,7 +6535,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eacf40c50db36e942a6e0165c94b7e80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Score_Text: {fileID: 0}
+  Score_Text: {fileID: 588080219}
 --- !u!1 &1823154963
 GameObject:
   m_ObjectHideFlags: 0
