@@ -100,7 +100,10 @@ public class MenuScript : MonoBehaviour {
 			this.level2button_Click ();
 		} else if (Input.GetKeyDown ("3")) {
 			this.level3button_Click ();
-		}
+		}else if (Input.GetKeyDown("0"))
+        {
+            this.exit_Click();
+        }
 
 
 

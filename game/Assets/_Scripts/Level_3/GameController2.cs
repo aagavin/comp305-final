@@ -26,7 +26,7 @@ public class GameController2 : MonoBehaviour {
 	/************** PRIVATE VARIABLES **************/
 	private int _score;
 	private int _health;
-	private int _amo;
+	private int _ammo;
 	private bool _invulnerable;
 	private GameObject[] Spawnpoints;
 	private int _waveNum =1;
@@ -96,11 +96,11 @@ public class GameController2 : MonoBehaviour {
 	/// <value>The amo.</value>
 	public int Ammo {
 		get{
-			return this._amo;
+			return this._ammo;
 		}
 		set{
-			this._amo = value;
-			AmmoText.text = "Heat: "+this._amo+"%";
+			this._ammo = value;
+			AmmoText.text = "Heat: "+this._ammo+"%";
 			if (Ammo == 100) {
 				AmmoText.color = Color.red;
 				Invoke ("_resetAmmo", 8f);		
@@ -146,8 +146,8 @@ public class GameController2 : MonoBehaviour {
 		this._invulnerable = false;
         this.hasKey = false;
 		this._health = 100;
-		this._amo = 0;
-		AmmoText.text = "Heat: " + this._amo + "%";
+		this._ammo = 0;
+		AmmoText.text = "Heat: " + this._ammo + "%";
 		this._invulnerableTime = 1.5f;
 
 		Spawnpoints = GameObject.FindGameObjectsWithTag ("Spawnpoint");

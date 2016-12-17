@@ -107,7 +107,7 @@ public class PlayerController : MonoBehaviour
                 else if (look.transform.gameObject.CompareTag("Player'sCar"))
                 {
                     GetinCar.Play();
-                    PlayerPrefs.SetInt("HighScore", _score);
+                    PlayerPrefs.SetInt("Score", _score);
                     StartCoroutine(_moveToLevel3(new WaitForSeconds(5f)));
                 }
                 else if (look.transform.gameObject.CompareTag("Power"))

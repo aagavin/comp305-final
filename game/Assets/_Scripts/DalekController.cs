@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
  * Pedro Bento
  * Aaron Fernandes
  * Waynell Lovell
- * Ashley Tjonhing
+ * Ashley Tjonhing (is blissfully unaware of this bad code, please dont tell her )
  * 
  * 
  * COMP 305 - Assignment 4 | Final 
@@ -79,8 +79,19 @@ public class DalekController : MonoBehaviour {
 	public void OnCollisionEnter(Collision other){
 		if (other.gameObject.CompareTag("Player") ){
 			other.gameObject.GetComponent<Rigidbody> ().velocity *=-500;
+            Scene scene = SceneManager.GetActiveScene();
+            
+            // sorry again
+            // we are really really sorry
 
-			_gameController.GetComponent<GameController2> ().HealthHit ();
+            if (scene.name == "Level3")
+            {
+                _gameController.GetComponent<GameController2>().HealthHit();
+            }
+            else
+            {
+                _gameController.GetComponent<GameController>().HealthHit();
+            }
 
 		}
 
