@@ -4,6 +4,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+/* * Pedro Bento
+* Aaron Fernandes
+* Waynell Lovell
+* Ashley Tjonhing
+* 
+* 
+* COMP 305 - Assignment 4 | Final 
+*/
 public class Enemy : MonoBehaviour {
 
     //Public
