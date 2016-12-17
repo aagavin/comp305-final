@@ -145,6 +145,11 @@ public class PlayerController : MonoBehaviour
     {
         yield return _waitTime;
         _score -= 1;
+        if(_score <= -5)
+        {
+            PlayerPrefs.SetInt("HighScore", _score);
+            SceneManager.LoadScene("GameOver");
+        }
         ScoreText.text = "Score: " + _score;
         StartCoroutine(_addscore(new WaitForSeconds(1f)));
     }
