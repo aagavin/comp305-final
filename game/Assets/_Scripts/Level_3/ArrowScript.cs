@@ -5,19 +5,20 @@ using UnityEngine;
 public class ArrowScript : MonoBehaviour {
 
     private Transform key;
+    private Transform player;
 
 	// Use this for initialization
 	void Start () {
         
         key = GameObject.FindGameObjectWithTag("KeyObject").transform;
-
+        player = GameObject.FindGameObjectWithTag("Player").transform;
         if (!key)
             Debug.Log("ERROR could not find Key!");
     }
 	
 	// Update is called once per frame
 	void Update () {
-        StartCoroutine("Rotator", 0.1f);
+        StartCoroutine("Rotator", 1f);
         
     }
     
@@ -25,8 +26,8 @@ public class ArrowScript : MonoBehaviour {
     {
         Vector2 target = key.position;
 
-        float dx = this.transform.position.x - target.x;
-        float dy = this.transform.position.y - target.y;
+        float dx = player.position.x - target.x;
+        float dy = player.position.y - target.y;
 
         float angle = Mathf.Atan2(dy, dx) * Mathf.Rad2Deg;
 
@@ -38,8 +39,9 @@ public class ArrowScript : MonoBehaviour {
 
     IEnumerator Rotator()
         {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(1f);
         Rotation();
+        Debug.Log("boo");
     }
 
     
