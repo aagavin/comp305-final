@@ -5,6 +5,15 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+/* * Pedro Bento
+* Aaron Fernandes
+* Waynell Lovell
+* Ashley Tjonhing
+* 
+* 
+* COMP 305 - Assignment 4 | Final 
+*/
+
 public class PlayerController : MonoBehaviour
 {
 
