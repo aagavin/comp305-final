@@ -265,9 +265,9 @@ public class GameController2 : MonoBehaviour {
 	/// Reset this instance.
 	/// </summary>
 	public void ResetGame(){
-		int highScore = PlayerPrefs.GetInt ("HighScore");
+		int highScore = PlayerPrefs.GetInt ("Score");
 		if (this._score > highScore) {
-			PlayerPrefs.SetInt ("HighScore", this._score);
+			PlayerPrefs.SetInt ("Score", this._score);
 		}
 	
 		Time.timeScale = 1;
@@ -316,6 +316,7 @@ public class GameController2 : MonoBehaviour {
 
     public void Win()
     {
+		PlayerPrefs.SetInt ("Score", this._score);
         SceneManager.LoadScene("GameOver");
     }
 }
