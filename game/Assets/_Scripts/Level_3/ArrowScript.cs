@@ -10,6 +10,7 @@ public class ArrowScript : MonoBehaviour {
 	void Start () {
         
         key = GameObject.FindGameObjectWithTag("KeyObject").transform;
+
         if (!key)
             Debug.Log("ERROR could not find Key!");
     }
@@ -19,7 +20,7 @@ public class ArrowScript : MonoBehaviour {
         StartCoroutine("Rotator", 0.1f);
         
     }
-
+    
     void Rotation()
     {
         Vector2 target = key.position;
@@ -32,6 +33,7 @@ public class ArrowScript : MonoBehaviour {
         Quaternion rot = Quaternion.Euler(new Vector3(0, 0, angle));
 
         this.transform.rotation = rot;
+
     }
 
     IEnumerator Rotator()
@@ -39,4 +41,7 @@ public class ArrowScript : MonoBehaviour {
         yield return new WaitForSeconds(0.1f);
         Rotation();
     }
+
+    
+
 }

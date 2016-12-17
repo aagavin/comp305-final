@@ -39,6 +39,7 @@ public class GameController : MonoBehaviour {
 	public Text ScoreText;
 	public Text HelthText;
 	public Text AmoText;
+    public Text Instructions;
 
 	public Text GameOverText;
 	public Button RestartButton;
@@ -60,15 +61,27 @@ public class GameController : MonoBehaviour {
 		this.Ammo -= 5;
 		StartCoroutine ("ScoreManagnment");
 	}
+    IEnumerator Indications(WaitForSeconds _waitTime)
+    {
+        Instructions.text = "SURVIVE";
+        yield return _waitTime;
+        StartCoroutine(Indications2(new WaitForSeconds(3.0f)));
+    }
+    IEnumerator Indications2(WaitForSeconds _waitTime)
+    {
+        Instructions.text = "Kill All Enemies!!";
+        yield return _waitTime;
+        Instructions.gameObject.SetActive(false);
+    }
 
-	/************** PUBLIC  PROPITIES **************/
+    /************** PUBLIC  PROPITIES **************/
 
 
-	/// <summary>
-	/// Gets or sets the dalek spawn count.
-	/// </summary>
-	/// <value>The dalek spawn count.</value>
-	public int DalekSpawnCount {
+    /// <summary>
+    /// Gets or sets the dalek spawn count.
+    /// </summary>
+    /// <value>The dalek spawn count.</value>
+    public int DalekSpawnCount {
 		get{
 			return _dalekSpawnCount;
 		}
@@ -105,7 +118,7 @@ public class GameController : MonoBehaviour {
 			return this._amo;
 		}
 		set{
-			if (value>0 || value<100) {
+			if (value>0 && value<=100) {
 				this._amo = value;
 				AmoText.text = "Heat: "+this._amo+"%";
 				if (Ammo == 100) {
@@ -159,6 +172,7 @@ public class GameController : MonoBehaviour {
 
 		//start corouitne
 		StartCoroutine ("ScoreManagnment");
+        StartCoroutine(Indications(new WaitForSeconds(3.0f)));
 	}
 
 	void Update(){
