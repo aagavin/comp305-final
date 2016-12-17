@@ -61,20 +61,4 @@ public class MenuScript : MonoBehaviour {
     {
         SceneManager.LoadScene("Menu");
     }
-
-
-	void Update() {
-		//cheat for going to level various levels
-		if (Input.GetKeyDown ("1")) {
-			this.level1button_Click ();
-		} else if (Input.GetKeyDown ("2")) {
-			this.level2button_Click ();
-		} else if (Input.GetKeyDown ("3")) {
-			this.level3button_Click ();
-		}
-
-
-
-
-	}
 }
