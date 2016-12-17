@@ -19,9 +19,9 @@ public class VictoryBox : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter(Collision collision)
+	private void OnTriggerEnter(Collider collision)
     {
-        if (collision.collider.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             if (gameController.HasKey)
             {

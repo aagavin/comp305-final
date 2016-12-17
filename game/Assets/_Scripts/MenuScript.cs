@@ -29,6 +29,8 @@ public class MenuScript : MonoBehaviour {
 		SceneManager.LoadScene("Level1");
 	}
 
+
+
 	/// <summary>
 	/// Goto Level 2 Scene
 	/// </summary>
@@ -62,7 +64,34 @@ public class MenuScript : MonoBehaviour {
 		SceneManager.LoadScene("Menu");
 	}
 
+	/// <summary>
+	/// Level1to2buttons the click.
+	/// </summary>
+	public void level1to2button_Click()
+	{
+		SceneManager.LoadScene("Level1toLevel2");
+	}
 
+	/// <summary>
+	/// Level2to3buttons the click.
+	/// </summary>
+	public void level2to3button_Click()
+	{
+		SceneManager.LoadScene("Level2toLevel3");
+	}
+
+	/// <summary>
+	/// Games the over button click.
+	/// </summary>
+	public void gameOverButton_Click()
+	{
+		SceneManager.LoadScene("GameOver");
+	}
+
+
+	/// <summary>
+	/// Update this instance.
+	/// </summary>
 	void Update() {
 		//cheat for going to level various levels
 		if (Input.GetKeyDown ("1")) {

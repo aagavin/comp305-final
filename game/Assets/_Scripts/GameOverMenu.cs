@@ -9,11 +9,18 @@ public class GameOverMenu : MonoBehaviour {
     public Text Score_Text;
 	// Use this for initialization
 	void Start () {
-        int HighScore = PlayerPrefs.GetInt("HighScore");
+        int _score = PlayerPrefs.GetInt("Score");
+		Score_Text.text += _score;
+		this._resetGame (_score);
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
+	/// <summary>
+	/// Reset this instance.
+	/// </summary>
+	public void _resetGame(int score){
+		int highScore = PlayerPrefs.GetInt ("HighScore");
+		if (score > highScore) {
+			PlayerPrefs.SetInt ("HighScore", score);
+		}
 	}
 }

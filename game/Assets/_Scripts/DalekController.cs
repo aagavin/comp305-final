@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 /*
  * Pedro Bento
@@ -36,10 +37,19 @@ public class DalekController : MonoBehaviour {
 		set{
 			this._life = value;
 			if(this._life==0){
-				this._gameController.GetComponent<GameController> ().DalekSpawnCount--;
-				this._gameController.GetComponent<GameController> ().Score+=5;
-				AudioSource.PlayClipAtPoint (DeathSound, this.transform.position, 50f);
-				GameObject.Destroy (this.gameObject);
+				Scene scene = SceneManager.GetActiveScene();
+
+				if (scene.name == "Level3") {
+					this._gameController.GetComponent<GameController2> ().DalekSpawnCount--;
+					this._gameController.GetComponent<GameController2> ().Score += 5;
+					AudioSource.PlayClipAtPoint (DeathSound, this.transform.position, 50f);
+					GameObject.Destroy (this.gameObject);
+				} else {
+					this._gameController.GetComponent<GameController> ().DalekSpawnCount--;
+					this._gameController.GetComponent<GameController> ().Score += 5;
+					AudioSource.PlayClipAtPoint (DeathSound, this.transform.position, 50f);
+					GameObject.Destroy (this.gameObject);
+				}
 			}
 		}
 	}
@@ -70,7 +80,7 @@ public class DalekController : MonoBehaviour {
 		if (other.gameObject.CompareTag("Player") ){
 			other.gameObject.GetComponent<Rigidbody> ().velocity *=-500;
 
-			_gameController.GetComponent<GameController> ().HealthHit ();
+			_gameController.GetComponent<GameController2> ().HealthHit ();
 
 		}
 
