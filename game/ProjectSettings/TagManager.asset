@@ -19,6 +19,7 @@ TagManager:
   - Spawnpoint
   - ScoreBoard
   - MajorTable
+  - KeyObject
   layers:
   - Default
   - TransparentFX
