@@ -227,7 +227,7 @@ public class GameController2 : MonoBehaviour {
 	/// <summary>
 	/// Reset this instance.
 	/// </summary>
-	public void Reset(){
+	public void ResetGame(){
 		int highScore = PlayerPrefs.GetInt ("HighScore");
 		if (this._score > highScore) {
 			PlayerPrefs.SetInt ("HighScore", this._score);
@@ -273,6 +273,6 @@ public class GameController2 : MonoBehaviour {
 
     public void Win()
     {
-        //TODO: make this work
+        SceneManager.LoadScene("GameOver");
     }
 }
