@@ -39,6 +39,7 @@ public class GameController2 : MonoBehaviour {
 	public Text ScoreText;
 	public Text HealthText;
 	public Text AmmoText;
+    public Text Indication;
 
 	public Text GameOverText;
 	public Button RestartButton;
@@ -159,14 +160,45 @@ public class GameController2 : MonoBehaviour {
 
 		//spawn keys
 		this._spawnKey();
+        StartCoroutine(_indication(new WaitForSeconds (3.0f), 1));
 	}
-		
+
+    private IEnumerator _indication(WaitForSeconds _waitTime, int switchcase)
+    {
+        switch(switchcase)
+        {
+            case 1:
+                Indication.text = "Oh No!";
+                yield return _waitTime;
+                StartCoroutine(_indication(new WaitForSeconds(3.0f), 2));
+                break;
+            case 2:
+                Indication.text = "They are here also.";
+                yield return _waitTime;
+                StartCoroutine(_indication(new WaitForSeconds(3.0f), 3));
+                break;
+            case 3:
+                Indication.text = "Kill them, find the key and GET OUT OF HERE.";
+                StartCoroutine(_removeDisplay(new WaitForSeconds(3.0f)));
+                break;
+            default:
+                yield return _waitTime;
+                break;
+        }
+    }
 
 
-	/// <summary>
-	/// Makes the player Invulnerable for <invulnerableTime>
-	/// </summary>
-	private void _setInvulnerable(){
+    private IEnumerator _removeDisplay(WaitForSeconds _waitTime)
+    {
+        yield return _waitTime;
+        Indication.gameObject.SetActive(false);
+    }
+
+
+    /// <summary>
+    /// Makes the player Invulnerable for <invulnerableTime>
+    /// </summary>
+    private void _setInvulnerable(){
 		this._invulnerable = true;
 		Invoke("_setVulnerable", _invulnerableTime);
 
