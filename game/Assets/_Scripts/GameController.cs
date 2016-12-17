@@ -105,7 +105,7 @@ public class GameController : MonoBehaviour {
 			return this._amo;
 		}
 		set{
-			if (value>0 || value<100) {
+			if (value>0 && value<=100) {
 				this._amo = value;
 				AmoText.text = "Heat: "+this._amo+"%";
 				if (Ammo == 100) {
