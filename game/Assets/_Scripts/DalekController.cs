@@ -52,7 +52,7 @@ public class DalekController : MonoBehaviour {
 	void Start () {
 		this._gameController = GameObject.FindGameObjectWithTag ("ScoreBoard");
 		this._player = GameObject.FindWithTag ("Player").transform;
-		this._life = 5;
+		this._life = 2;
 	}
 
 	void Update(){
