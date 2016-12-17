@@ -11,7 +11,6 @@ using UnityEngine.UI;
 * Waynell Lovell
 * Ashley Tjonhing
 * 
-* 
 * COMP 305 - Assignment 4 | Final 
 */
 
@@ -44,7 +43,9 @@ public class PlayerController : MonoBehaviour
         StartCoroutine(_addscore(new WaitForSeconds(1f)));
     }
 
-    // FixedUpdate is called once per frame
+    /// <summary>
+    /// Fixed update that is called every frame
+    /// </summary>
     void FixedUpdate()
     {
         // need a variable to hold the location of our Raycast look
@@ -127,6 +128,12 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+
+
+	/// <summary>
+	/// Raises the trigger enter event.
+	/// </summary>
+	/// <param name="other">Other.</param>
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("boarder") || other.gameObject.CompareTag("Enemy"))
@@ -136,18 +143,29 @@ public class PlayerController : MonoBehaviour
             ScoreText.text = "Score: " + _score;
         }
     }
+
+	/// <summary>
+	/// Moves to level3.
+	/// </summary>
+	/// <returns>The to level3.</returns>
+	/// <param name="_waitTime">Wait time.</param>
     private IEnumerator _moveToLevel3(WaitForSeconds _waitTime)
     {
         yield return _waitTime;
         SceneManager.LoadScene("Level2toLevel3");
     }
+
+	/// <summary>
+	/// Addscore the specified _waitTime.
+	/// </summary>
+	/// <param name="_waitTime">Wait time.</param>
     private IEnumerator _addscore(WaitForSeconds _waitTime)
     {
         yield return _waitTime;
         _score -= 1;
         if(_score <= -5)
         {
-            PlayerPrefs.SetInt("HighScore", _score);
+            PlayerPrefs.SetInt("Score", _score);
             SceneManager.LoadScene("GameOver");
         }
         ScoreText.text = "Score: " + _score;
