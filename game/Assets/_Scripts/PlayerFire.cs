@@ -47,6 +47,7 @@ public class PlayerFire : MonoBehaviour {
             Scene scene = SceneManager.GetActiveScene();
             bool ammoCheck = false;
 
+			// sorry
             if (scene.name == "Level1")
             {
                 ammoCheck = GameObject.FindGameObjectWithTag("ScoreBoard").GetComponent<GameController>().Ammo < 100;
