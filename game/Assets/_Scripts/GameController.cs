@@ -52,6 +52,15 @@ public class GameController : MonoBehaviour {
 
 	public MenuScript MenUScript;
 
+	/************** COROUTINE  PROPITIES **************/
+
+	IEnumerator ScoreManagnment(){
+		//
+		yield return new WaitForSeconds(2);
+		this.Ammo -= 5;
+		StartCoroutine ("ScoreManagnment");
+	}
+
 	/************** PUBLIC  PROPITIES **************/
 
 
@@ -96,17 +105,18 @@ public class GameController : MonoBehaviour {
 			return this._amo;
 		}
 		set{
-			this._amo = value;
-			AmoText.text = "Heat: "+this._amo+"%";
-			if (Ammo == 100) {
-				AmoText.color = Color.red;
-				Invoke ("_resetAmo", 8f);		
-			}
-			else if(Ammo > 80){
-				AmoText.color = Color.yellow;
-				Invoke ("_resetAmo", 3.5f);
-			} else if (Ammo <= 15) {
-				AmoText.color = Color.white;
+			if (value>0 || value<100) {
+				this._amo = value;
+				AmoText.text = "Heat: "+this._amo+"%";
+				if (Ammo == 100) {
+					AmoText.color = Color.red;
+					Invoke ("_resetAmo", 8f);		
+				}
+				else if(Ammo > 60 && Ammo < 100){
+					AmoText.color = Color.yellow;
+				} else if (Ammo <= 15) {
+					AmoText.color = Color.white;
+				}			
 			}
 		}
 	}
@@ -146,6 +156,9 @@ public class GameController : MonoBehaviour {
 		GameOverText.gameObject.SetActive(false);
 		RestartButton.gameObject.SetActive(false);
 		PlayerPrefs.SetInt ("HighScore", 0);
+
+		//start corouitne
+		StartCoroutine ("ScoreManagnment");
 	}
 
 	void Update(){
