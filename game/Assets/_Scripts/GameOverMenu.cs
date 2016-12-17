@@ -9,7 +9,7 @@ public class GameOverMenu : MonoBehaviour {
     public Text Score_Text;
 	// Use this for initialization
 	void Start () {
-        int _score = PlayerPrefs.GetInt("Score");
+        int _score = PlayerPrefs.GetInt("HighScore");
 		Score_Text.text += _score;
 		this._resetGame (_score);
 	}
