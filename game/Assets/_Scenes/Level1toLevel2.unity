@@ -104,6 +104,7 @@ GameObject:
   - component: {fileID: 164169373}
   - component: {fileID: 164169372}
   - component: {fileID: 164169371}
+  - component: {fileID: 164169376}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -179,6 +180,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!114 &164169376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 164169370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f575d25f856b7264581231fc499a8ac2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button: {fileID: 0}
 --- !u!1 &240846672
 GameObject:
   m_ObjectHideFlags: 0
@@ -615,7 +628,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 873103975}
-  - component: {fileID: 873103974}
   m_Layer: 0
   m_Name: Shotgun
   m_TagString: Untagged
@@ -623,18 +635,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &873103974
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 873103973}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f575d25f856b7264581231fc499a8ac2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Button: {fileID: 0}
 --- !u!4 &873103975
 Transform:
   m_ObjectHideFlags: 0
