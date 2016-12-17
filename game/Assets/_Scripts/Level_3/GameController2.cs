@@ -243,6 +243,12 @@ public class GameController2 : MonoBehaviour {
 		SceneManager.LoadScene (0);
 	}
 
+	void Update(){
+		if (Input.GetKeyDown ("0")) {
+			this.HasKey = true;
+		}
+	}
+
 	/************** PUBLIC FUNCTIONS **************/
 
 	/// <summary>
