@@ -27,13 +27,13 @@ public class Lvl2GameController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        this.Player.transform.position = this.SpawnPoint.transform.position;
         _lights = GameObject.FindGameObjectsWithTag("Light");
         foreach (GameObject light in _lights)
         {
             Light source = (Light) light.GetComponent<Light>();
                 source.enabled = false;
         }
-        this.Player.transform.position = this.SpawnPoint.position;
         _gamejuststart = true;
         _instruction = false;
         DisplayText.gameObject.SetActive(true);

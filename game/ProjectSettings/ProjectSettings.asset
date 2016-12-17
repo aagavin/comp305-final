@@ -523,7 +523,7 @@ PlayerSettings:
   vrEditorSettings: {}
   cloudServicesEnabled:
     Analytics: 0
-    Build: 0
+    Build: 1
     Collab: 0
     ErrorHub: 0
     Game_Performance: 0
@@ -531,7 +531,7 @@ PlayerSettings:
     Purchasing: 0
     UNet: 0
     Unity_Ads: 0
-  cloudProjectId: 
-  projectName: 
-  organizationId: 
+  cloudProjectId: c1731a1a-28ee-49c6-a126-2afeb288363c
+  projectName: COMP-305-Final
+  organizationId: aagavin
   cloudEnabled: 0

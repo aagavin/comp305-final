@@ -88,8 +88,8 @@ Camera:
   m_GameObject: {fileID: 1668312379111886}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0.019607844}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0.019607844}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -652,6 +652,7 @@ MonoBehaviour:
   PlayerDirection: {fileID: 4438202994693044}
   Respawn: {fileID: 0}
   DisplayText: {fileID: 0}
+  ScoreText: {fileID: 0}
   PhoneCall: {fileID: 82140051489205776}
   Sit: {fileID: 82703913404771542}
   GetinCar: {fileID: 82494707956089694}
