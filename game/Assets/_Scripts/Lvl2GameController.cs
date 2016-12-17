@@ -3,6 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/* * Pedro Bento
+* Aaron Fernandes
+* Waynell Lovell
+* Ashley Tjonhing
+* 
+* 
+* COMP 305 - Assignment 4 | Final 
+*/
+
 public class Lvl2GameController : MonoBehaviour {
     // Private
     private GameObject[] _lights;
