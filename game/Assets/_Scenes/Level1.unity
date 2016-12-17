@@ -1650,53 +1650,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4000011413854530, guid: 970399519a2e64abd98d27a0ef30a812,
     type: 2}
   m_PrefabInternal: {fileID: 489408282}
---- !u!1001 &490411383
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4000010742293092, guid: 1ab9d902c4447da47b14bbcb2a5ab6e2, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -373.97888
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000010742293092, guid: 1ab9d902c4447da47b14bbcb2a5ab6e2, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 210.13
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000010742293092, guid: 1ab9d902c4447da47b14bbcb2a5ab6e2, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 119.28997
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000010742293092, guid: 1ab9d902c4447da47b14bbcb2a5ab6e2, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0.000000059604645
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000010742293092, guid: 1ab9d902c4447da47b14bbcb2a5ab6e2, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000010742293092, guid: 1ab9d902c4447da47b14bbcb2a5ab6e2, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000010742293092, guid: 1ab9d902c4447da47b14bbcb2a5ab6e2, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000010742293092, guid: 1ab9d902c4447da47b14bbcb2a5ab6e2, type: 2}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 195000012702292346, guid: 1ab9d902c4447da47b14bbcb2a5ab6e2,
-        type: 2}
-      propertyPath: m_Speed
-      value: 5
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 1ab9d902c4447da47b14bbcb2a5ab6e2, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &542142574
 GameObject:
   m_ObjectHideFlags: 0
@@ -5407,6 +5360,7 @@ MonoBehaviour:
   GameOverSound: {fileID: 2105002326}
   ThemeSound: {fileID: 2105002327}
   GunReloadSound: {fileID: 2105002328}
+  MenUScript: {fileID: 2105002329}
 --- !u!82 &2105002326
 AudioSource:
   m_ObjectHideFlags: 0

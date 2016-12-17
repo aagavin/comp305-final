@@ -5,7 +5,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-/* * Pedro Bento
+/*
+* Pedro Bento
 * Aaron Fernandes
 * Waynell Lovell
 * Ashley Tjonhing
@@ -38,7 +39,7 @@ public class PlayerController : MonoBehaviour
     {
         _lights = GameObject.FindGameObjectsWithTag("Light");
         _isLightsOn = true;
-        _score=PlayerPrefs.GetInt("HighScore");
+        _score=PlayerPrefs.GetInt("Score");
         ScoreText.text = "Score: " + _score;
         StartCoroutine(_addscore(new WaitForSeconds(1f)));
     }

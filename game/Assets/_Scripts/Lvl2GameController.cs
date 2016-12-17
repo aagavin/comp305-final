@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-/* * Pedro Bento
+/*  
+* Pedro Bento
 * Aaron Fernandes
 * Waynell Lovell
 * Ashley Tjonhing
@@ -58,7 +59,7 @@ public class Lvl2GameController : MonoBehaviour {
         else if(_warning)
         {
             DisplayText.gameObject.SetActive(true);
-            DisplayText.text = "Don't get hit by Enemies";
+            DisplayText.text = "Don't get hit by Cars";
         }
     }
 

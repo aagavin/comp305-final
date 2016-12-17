@@ -43,7 +43,7 @@ public class PlayerFire : MonoBehaviour {
 	/// </summary>
 	void Update () {
 		if (Input.GetButtonDown ("Fire1") && !this._onTable) {
-			if (GameObject.FindGameObjectWithTag ("ScoreBoard").GetComponent<GameController> ().Amo < 100) {
+			if (GameObject.FindGameObjectWithTag ("ScoreBoard").GetComponent<GameController2> ().Ammo < 100) {
 
 				// play fire sound
 				Firesound.volume = .1f;
@@ -61,7 +61,7 @@ public class PlayerFire : MonoBehaviour {
 					}
 				}
 				// Increase heat count
-				GameObject.FindGameObjectWithTag ("ScoreBoard").GetComponent<GameController> ().Amo += 10;
+				GameObject.FindGameObjectWithTag ("ScoreBoard").GetComponent<GameController2> ().Ammo += 10;
 				// stop sonic effect after 2s 
 				GameObject.Destroy (fe, 2f);
 

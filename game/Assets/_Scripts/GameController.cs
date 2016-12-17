@@ -50,6 +50,8 @@ public class GameController : MonoBehaviour {
 	public AudioSource ThemeSound;
 	public AudioSource GunReloadSound;
 
+	public MenuScript MenUScript;
+
 	/************** PUBLIC  PROPITIES **************/
 
 
@@ -145,7 +147,13 @@ public class GameController : MonoBehaviour {
 		RestartButton.gameObject.SetActive(false);
 		PlayerPrefs.SetInt ("HighScore", 0);
 	}
-		
+
+	void Update(){
+		if (this.Score == 50) {
+			PlayerPrefs.SetInt ("Score", this.Score);
+			MenUScript.level1to2button_Click ();
+		}
+	}
 
 
 	/// <summary>

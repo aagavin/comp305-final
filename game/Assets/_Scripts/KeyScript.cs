@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class KeyScript : MonoBehaviour {
 
-    public GameController2 gameController;
+	private GameController2 gameController;
 	// Use this for initialization
 	void Start () {
-		
+		gameController = GameObject.FindGameObjectWithTag ("ScoreBoard").GetComponent<GameController2> ();
+
 	}
 	
 	// Update is called once per frame
