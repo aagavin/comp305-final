@@ -1,0 +1,199 @@
+fileFormatVersion: 2
+guid: a3c9aa3649536bb4fb2639881dc16c95
+timeCreated: 1481770874
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Bolt
+    100002: Bolt_001
+    100004: Bolt_002
+    100006: Bolt_003
+    100008: Bolt_004
+    100010: Bolt_005
+    100012: Bolt_006
+    100014: Bolt_007
+    100016: Bolt_008
+    100018: Bolt_009
+    100020: Bolt_010
+    100022: Bolt_011
+    100024: //RootNode
+    100026: Cube
+    100028: Cube_001
+    100030: Cube_002
+    100032: Cube_003
+    100034: Cylinder
+    100036: Door
+    100038: DoorFrame
+    100040: HandleFront
+    100042: HandleRear
+    100044: HandleRimFront
+    100046: HandleRimRear
+    100048: HingeBolt
+    400000: Bolt
+    400002: Bolt_001
+    400004: Bolt_002
+    400006: Bolt_003
+    400008: Bolt_004
+    400010: Bolt_005
+    400012: Bolt_006
+    400014: Bolt_007
+    400016: Bolt_008
+    400018: Bolt_009
+    400020: Bolt_010
+    400022: Bolt_011
+    400024: //RootNode
+    400026: Cube
+    400028: Cube_001
+    400030: Cube_002
+    400032: Cube_003
+    400034: Cylinder
+    400036: Door
+    400038: DoorFrame
+    400040: HandleFront
+    400042: HandleRear
+    400044: HandleRimFront
+    400046: HandleRimRear
+    400048: HingeBolt
+    2300000: Bolt
+    2300002: Bolt_001
+    2300004: Bolt_002
+    2300006: Bolt_003
+    2300008: Bolt_004
+    2300010: Bolt_005
+    2300012: Bolt_006
+    2300014: Bolt_007
+    2300016: Bolt_008
+    2300018: Bolt_009
+    2300020: Bolt_010
+    2300022: Bolt_011
+    2300024: Cube
+    2300026: Cube_001
+    2300028: Cube_002
+    2300030: Cube_003
+    2300032: Cylinder
+    2300034: Door
+    2300036: DoorFrame
+    2300038: HandleFront
+    2300040: HandleRear
+    2300042: HandleRimFront
+    2300044: HandleRimRear
+    2300046: HingeBolt
+    3300000: Bolt
+    3300002: Bolt_001
+    3300004: Bolt_002
+    3300006: Bolt_003
+    3300008: Bolt_004
+    3300010: Bolt_005
+    3300012: Bolt_006
+    3300014: Bolt_007
+    3300016: Bolt_008
+    3300018: Bolt_009
+    3300020: Bolt_010
+    3300022: Bolt_011
+    3300024: Cube
+    3300026: Cube_001
+    3300028: Cube_002
+    3300030: Cube_003
+    3300032: Cylinder
+    3300034: Door
+    3300036: DoorFrame
+    3300038: HandleFront
+    3300040: HandleRear
+    3300042: HandleRimFront
+    3300044: HandleRimRear
+    3300046: HingeBolt
+    4300000: Bolt_008
+    4300002: Bolt_007
+    4300004: Bolt_006
+    4300006: Cube_001
+    4300008: HingeBolt
+    4300010: Door
+    4300012: Cube_003
+    4300014: Bolt_011
+    4300016: Bolt_010
+    4300018: Bolt_009
+    4300020: Bolt_002
+    4300022: Bolt_001
+    4300024: Bolt
+    4300026: Cube
+    4300028: HandleRimFront
+    4300030: HandleFront
+    4300032: HandleRear
+    4300034: HandleRimRear
+    4300036: Cylinder
+    4300038: Cube_002
+    4300040: Bolt_005
+    4300042: Bolt_004
+    4300044: Bolt_003
+    4300046: DoorFrame
+    7400000: Default Take
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
