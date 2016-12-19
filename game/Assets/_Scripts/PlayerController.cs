@@ -169,6 +169,6 @@ public class PlayerController : MonoBehaviour
             SceneManager.LoadScene("GameOver");
         }
         ScoreText.text = "Score: " + _score;
-        StartCoroutine(_addscore(new WaitForSeconds(1f)));
+        StartCoroutine(_addscore(new WaitForSeconds(5f)));
     }
 }
