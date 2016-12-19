@@ -32,20 +32,28 @@ public class ArrowScript : MonoBehaviour {
     /// </summary>
     void Update()
     {
-        if (GameObject.Find("key") != null)
-        { 
+        if (GameObject.FindGameObjectWithTag("KeyObject") != null)
+        {
+            Debug.Log("Key Exists.");
             Rotation();
         }
+
+        else
+        {
+            Debug.Log("Key Not Found.");
+        }
+
+
     }
     
     void Rotation()
     {
         //Couldn't fix this <(T_T)>^(T_T)^<(T_T)>
         player = GameObject.Find("FPSController");
-        target = GameObject.Find("key");
+        target = GameObject.FindGameObjectWithTag("KeyObject");
 
         Vector3 ToTarget = target.transform.position - player.transform.position;
-        float angle = Mathf.Atan2(ToTarget.y, ToTarget.x) * Mathf.Rad2Deg;
+        float angle = (Mathf.Atan2(ToTarget.y, ToTarget.x) * Mathf.Rad2Deg)-90;
         Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
         this.transform.rotation = Quaternion.Slerp(this.transform.rotation, q, Time.deltaTime * 1f);
 
