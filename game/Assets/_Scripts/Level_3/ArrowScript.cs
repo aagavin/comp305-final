@@ -2,48 +2,52 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Pedro Bento
+ * Aaron Fernandes
+ * Waynell Lovell
+ * Ashley Tjonhing
+ * 
+ * 
+ * COMP 305 - Assignment 4 | Final 
+ */ 
+
+
+/// <summary>
+/// Arrow script class
+/// </summary>
 public class ArrowScript : MonoBehaviour {
 
-    private Transform key;
-    private Transform player;
+	private GameObject target;
+    private GameObject player;
 
-	// Use this for initialization
+	/// <summary>
+	/// Start this instance.
+	/// </summary>
 	void Start () {
-        
-        key = GameObject.FindGameObjectWithTag("KeyObject").transform;
-        player = GameObject.FindGameObjectWithTag("Player").transform;
-        if (!key)
-            Debug.Log("ERROR could not find Key!");
     }
-	
-	// Update is called once per frame
-	void Update () {
-        StartCoroutine("Rotator", 1f);
-        
+
+    /// <summary>
+    /// Update this instance.
+    /// </summary>
+    void Update()
+    {
+        if (GameObject.Find("key") != null)
+        { 
+            Rotation();
+        }
     }
     
     void Rotation()
     {
-        Vector2 target = key.position;
+        //Couldn't fix this <(T_T)>^(T_T)^<(T_T)>
+        player = GameObject.Find("FPSController");
+        target = GameObject.Find("key");
 
-        float dx = player.position.x - target.x;
-        float dy = player.position.y - target.y;
-
-        float angle = Mathf.Atan2(dy, dx) * Mathf.Rad2Deg;
-
-        Quaternion rot = Quaternion.Euler(new Vector3(0, 0, angle));
-
-        this.transform.rotation = rot;
+        Vector3 ToTarget = target.transform.position - player.transform.position;
+        float angle = Mathf.Atan2(ToTarget.y, ToTarget.x) * Mathf.Rad2Deg;
+        Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
+        this.transform.rotation = Quaternion.Slerp(this.transform.rotation, q, Time.deltaTime * 1f);
 
     }
-
-    IEnumerator Rotator()
-        {
-        yield return new WaitForSeconds(1f);
-        Rotation();
-        Debug.Log("boo");
-    }
-
-    
-
 }

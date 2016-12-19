@@ -270,9 +270,9 @@ public class GameController : MonoBehaviour {
 				if (this._score > highScore) {
 					PlayerPrefs.SetInt ("HighScore", this._score);
 				}
+				PlayerPrefs.SetInt ("Score", this._score);
 				SceneManager.LoadScene ("GameOver");
-				//GameOverText.text="Game Over High Score: "+PlayerPrefs.GetInt ("HighScore");
-				//Cursor.lockState = CursorLockMode.None;
+
 
 			}
 			this._setInvulnerable ();
