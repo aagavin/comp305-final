@@ -18,70 +18,36 @@ using UnityEngine;
 /// </summary>
 public class ArrowScript : MonoBehaviour {
 
-	private Vector3 key;
-    private Transform player;
+	private GameObject target;
+    private GameObject player;
 
 	/// <summary>
 	/// Start this instance.
 	/// </summary>
 	void Start () {
-        
-		StartCoroutine ("Starter");
     }
-	
-	/// <summary>
-	/// Update this instance.
-	/// </summary>
-	void Update () {
-		Rotation();
+
+    /// <summary>
+    /// Update this instance.
+    /// </summary>
+    void Update()
+    {
+        if (GameObject.Find("key") != null)
+        { 
+            Rotation();
+        }
     }
     
     void Rotation()
     {
-		//Couldn't fix this <(T_T)>^(T_T)^<(T_T)>
-        Vector3 target = key;
+        //Couldn't fix this <(T_T)>^(T_T)^<(T_T)>
+        player = GameObject.Find("FPSController");
+        target = GameObject.Find("key");
 
-        float dx = player.position.x - target.x;
-        float dy = player.position.y - target.y;
-		float dz = player.position.z - target.z;
-
-        float angle = Mathf.Atan2(dy, dx) * Mathf.Rad2Deg;
-
-        Quaternion rot = Quaternion.Euler(0, 0, angle);
-		Debug.Log(angle);
-
-        this.transform.rotation = rot;
+        Vector3 ToTarget = target.transform.position - player.transform.position;
+        float angle = Mathf.Atan2(ToTarget.y, ToTarget.x) * Mathf.Rad2Deg;
+        Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
+        this.transform.rotation = Quaternion.Slerp(this.transform.rotation, q, Time.deltaTime * 1f);
 
     }
-
-	/// <summary>
-	/// Starter IEnumerator
-	/// </summary>
-	IEnumerator Starter()
-	{
-		yield return new WaitForSeconds(1f);
-		Debug.Log (GameObject.FindGameObjectWithTag ("KeyObject"));
-		key = GameObject.FindGameObjectWithTag("KeyObject").transform.position;
-
-		player = GameObject.FindGameObjectWithTag("Player").transform;
-		/*
-		if (!key) {
-			Debug.Log ("ERROR could not find Key!");
-		}
-		*/
-	}
-
-
-	/// <summary>
-	/// Rotator this instance.
-	/// </summary>
-    IEnumerator Rotator()
-    {
-        yield return new WaitForSeconds(5f);
-        Rotation();
-        Debug.Log("boo");
-    }
-
-    
-
 }

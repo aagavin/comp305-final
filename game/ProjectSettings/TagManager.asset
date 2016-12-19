@@ -20,6 +20,7 @@ TagManager:
   - ScoreBoard
   - MajorTable
   - KeyObject
+  - MiniMapSpotLight
   layers:
   - Default
   - TransparentFX
@@ -32,7 +33,7 @@ TagManager:
   - Gun
   - Roof
   - Arrow
-  - 
+  - MiniMapLight
   - 
   - 
   - 
