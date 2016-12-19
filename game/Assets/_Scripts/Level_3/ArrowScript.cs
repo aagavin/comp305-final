@@ -18,8 +18,8 @@ using UnityEngine;
 /// </summary>
 public class ArrowScript : MonoBehaviour {
 
-	private Vector3 key;
-    private Transform player;
+	private GameObject key;
+    private GameObject player;
 
 	/// <summary>
 	/// Start this instance.
@@ -33,17 +33,15 @@ public class ArrowScript : MonoBehaviour {
 	/// Update this instance.
 	/// </summary>
 	void Update () {
-		Rotation();
     }
     
     void Rotation()
     {
 		//Couldn't fix this <(T_T)>^(T_T)^<(T_T)>
-        Vector3 target = key;
 
-        float dx = player.position.x - target.x;
-        float dy = player.position.y - target.y;
-		float dz = player.position.z - target.z;
+        float dx = player.transform.position.x - key.transform.position.x;
+        float dy = player.transform.position.y - key.transform.position.y;
+		float dz = player.transform.position.z - key.transform.position.z;
 
         float angle = Mathf.Atan2(dy, dx) * Mathf.Rad2Deg;
 
@@ -59,17 +57,18 @@ public class ArrowScript : MonoBehaviour {
 	/// </summary>
 	IEnumerator Starter()
 	{
-		yield return new WaitForSeconds(1f);
-		Debug.Log (GameObject.FindGameObjectWithTag ("KeyObject"));
-		key = GameObject.FindGameObjectWithTag("KeyObject").transform.position;
+        Debug.Log("searching for key");
+		yield return new WaitForSeconds(5f);
+		Debug.Log (GameObject.Find("WinObject"));
+        key = GameObject.Find("WinObject");
 
-		player = GameObject.FindGameObjectWithTag("Player").transform;
-		/*
+        player = GameObject.Find("FPSController");
+        /*
 		if (!key) {
 			Debug.Log ("ERROR could not find Key!");
 		}
 		*/
-	}
+    }
 
 
 	/// <summary>
